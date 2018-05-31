@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     var answer = 0
     var maxNumber = 100
     var minNumber = 1
-    var guessTime = 3
+    var guessTime = 5
 
     @IBAction func makeGuessButton(_ sender: UIButton) {
         
@@ -28,9 +28,8 @@ class ViewController: UIViewController {
         if sender.titleLabel?.text == "再玩一次" {
             sender.setTitle("猜數字", for: .normal)
             answer = randomDistribution.nextInt()
-            print("1",answer)
             inputTextField.text = ""
-            guessTime = 3
+            guessTime = 5
             maxNumber = 100
             minNumber = 1
             showInfo()
@@ -113,7 +112,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         randomDistribution = GKRandomDistribution(lowestValue: 1, highestValue: 100)
         answer = randomDistribution.nextInt()
-        print("0",answer)
         
     }
     
