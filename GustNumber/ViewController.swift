@@ -23,6 +23,7 @@ class ViewController: UIViewController {
     var guessTime = 5
 
     @IBAction func makeGuessButton(_ sender: UIButton) {
+        view.endEditing(true)
         
         //判斷次數
         if sender.titleLabel?.text == "再玩一次" {
@@ -102,6 +103,10 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func cleanTextField(_ sender: UITextField) {
+        inputTextField.text = ""
+    }
+    
     func showInfo() {
         guessTimeLabel.text = "還有 \(guessTime)次 機會"
         messageLabel.text = "請輸入數字介於 \(minNumber) - \(maxNumber) 之間"
@@ -112,7 +117,6 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         randomDistribution = GKRandomDistribution(lowestValue: 1, highestValue: 100)
         answer = randomDistribution.nextInt()
-        
     }
     
     override func didReceiveMemoryWarning() {
